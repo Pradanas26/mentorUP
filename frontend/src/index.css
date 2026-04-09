@@ -1,0 +1,153 @@
+/* ============================================================
+   index.css — Estilos globales de MentorUP
+   Aquí definimos los colores, fuentes y estilos base
+   que se usan en toda la aplicación.
+   ============================================================ */
+
+/* Importamos la fuente de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* ── VARIABLES DE COLOR (paleta de MentorUP) ────────────────── */
+:root {
+  --color-primary:    #4a9d8f;   /* Verde azulado principal */
+  --color-primary-dark: #3a7d70; /* Verde más oscuro (hover) */
+  --color-primary-light: #e8f5f3;/* Verde muy claro (fondos) */
+  --color-dark:       #1a2e2b;   /* Texto oscuro */
+  --color-gray:       #6b7280;   /* Texto secundario */
+  --color-gray-light: #f3f4f6;   /* Fondo gris claro */
+  --color-white:      #ffffff;
+  --color-border:     #e5e7eb;   /* Bordes */
+  --color-danger:     #ef4444;   /* Rojo para errores */
+  --color-success:    #22c55e;   /* Verde para éxito */
+
+  --font-family: 'Outfit', sans-serif;
+  --border-radius: 12px;         /* Bordes redondeados */
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+/* ── RESET BÁSICO ────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box; /* El padding no aumenta el tamaño */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-dark);
+  background-color: var(--color-white);
+  line-height: 1.6;
+}
+
+/* ── CLASES UTILITARIAS (helpers) ───────────────────────────── */
+
+/* Contenedor centrado con ancho máximo */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Botón principal verde */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px); /* Efecto de subida al pasar el ratón */
+}
+
+/* Botón secundario con borde */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-dark);
+  border: 2px solid var(--color-dark);
+  padding: 10px 22px;
+  border-radius: var(--border-radius);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-dark);
+  color: white;
+}
+
+/* Tarjeta con sombra */
+.card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  border: 1px solid var(--color-border);
+}
+
+/* Campo de formulario */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary); /* Borde verde al enfocar */
+}
+
+/* Mensajes de error */
+.error-msg {
+  color: var(--color-danger);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* Badge de estado */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-destacado { background: #fef3c7; color: #92400e; }
+.badge-activo    { background: #dcfce7; color: #166534; }
+.badge-pendiente { background: #fef9c3; color: #854d0e; }
+.badge-cancelada { background: #fee2e2; color: #991b1b; }
