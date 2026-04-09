@@ -62,11 +62,20 @@
 /* Icono */
 
 .welcome-icon img {
-    width: 36px;
-    height: 36px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
     vertical-align: middle;
     margin: 0 4px;
+    margin-bottom: -30px;
+    margin-top: -70px;
+}
+
+.welcome-icon-top {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    vertical-align: middle;
 }
 
 

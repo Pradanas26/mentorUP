@@ -15,9 +15,13 @@ function Welcome() {
     <div className="welcome">
 
       {/* Logo arriba centrado */}
-      <header className="welcome-header">
-        <span className="welcome-logo">Mentor 🎓 <strong>UP</strong></span>
-      </header>
+    <header className="welcome-header">
+    <span className="welcome-logo">
+        Mentor 
+        <img src={logoMentorUP} className="welcome-icon-top" />
+        <strong>UP</strong>
+    </span>
+    </header>
 
       {/* Contenido central */}
       <main className="welcome-main">
@@ -43,12 +47,6 @@ function Welcome() {
               Crear cuenta gratis
             </Link>
           </div>
-
-          {/* Enlace secundario a cómo funciona */}
-          <p className="welcome-link">
-            ¿No sabes cómo funciona?{' '}
-            <Link to="/home">Descúbrelo aquí</Link>
-          </p>
 
         </div>
 
