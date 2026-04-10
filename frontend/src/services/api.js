@@ -148,6 +148,10 @@ export function getUsuarioActual() {
   return usuario ? JSON.parse(usuario) : null;
 }
 
+export function estaLogueado() {
+  return !!localStorage.getItem('token');
+}
+
 /**
  * Comprueba si el usuario actual es administrador
  */

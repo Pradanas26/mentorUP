@@ -101,6 +101,7 @@ class AnuncioController extends Controller
             'precio_hora'   => $request->precio_hora,
             'nivel'         => $request->nivel,
             'disponibilidad'=> $request->disponibilidad,
+            'verificado'    => 'pendiente',
         ]);
 
         return response()->json(['success' => true, 'data' => $anuncio], 201);
