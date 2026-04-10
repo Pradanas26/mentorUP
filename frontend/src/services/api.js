@@ -149,8 +149,73 @@ export function getUsuarioActual() {
 }
 
 /**
- * Comprueba si hay un usuario logueado
+ * Comprueba si el usuario actual es administrador
  */
-export function estaLogueado() {
-  return !!localStorage.getItem('token');
+export function esAdmin() {
+  const usuario = getUsuarioActual();
+  return usuario?.rol === 'admin';
+}
+
+// ── ADMINISTRACIÓN ────────────────────────────────────────────
+
+/**
+ * Estadísticas del dashboard de admin
+ */
+export async function getAdminStats() {
+  return fetchAPI('/admin/stats');
+}
+
+/**
+ * Lista de anuncios para el admin (con filtro opcional)
+ * @param {string} estado - 'pendiente' | 'aprobado' | 'rechazado'
+ */
+export async function getAdminAnuncios(estado = '') {
+  const params = estado ? `?estado=${estado}` : '';
+  return fetchAPI(`/admin/anuncios${params}`);
+}
+
+/**
+ * Aprueba o rechaza un anuncio
+ * @param {number} id
+ * @param {string} accion - 'aprobado' | 'rechazado'
+ */
+export async function verificarAnuncio(id, accion) {
+  return fetchAPI(`/admin/anuncios/${id}/verificar`, {
+    method: 'PUT',
+    body: JSON.stringify({ accion }),
+  });
+}
+
+/**
+ * Lista de alumnos para el admin
+ */
+export async function getAdminAlumnos() {
+  return fetchAPI('/admin/alumnos');
+}
+
+/**
+ * Lista de profesores para el admin
+ */
+export async function getAdminProfesores() {
+  return fetchAPI('/admin/profesores');
+}
+
+/**
+ * Bloquea o desbloquea un usuario
+ * @param {number} id - ID del usuario
+ * @param {boolean} bloqueado
+ */
+export async function bloquearUsuario(id, bloqueado) {
+  return fetchAPI(`/admin/usuarios/${id}/bloquear`, {
+    method: 'PUT',
+    body: JSON.stringify({ bloqueado }),
+  });
+}
+
+/**
+ * Elimina un usuario definitivamente
+ * @param {number} id - ID del usuario
+ */
+export async function eliminarUsuario(id) {
+  return fetchAPI(`/admin/usuarios/${id}`, { method: 'DELETE' });
 }

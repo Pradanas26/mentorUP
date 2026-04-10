@@ -11,6 +11,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AnuncioController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ValoracionController;
+use App\Http\Controllers\AdminController;
 
 // ── RUTAS PÚBLICAS (no necesitan estar autenticado) ───────────
 
@@ -43,5 +44,27 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // ── Valoraciones ───────────────────────────────────────
     Route::post('/valoraciones', [ValoracionController::class, 'store']); // Dejar valoración
+
+});
+
+// ── RUTAS DE ADMINISTRACIÓN ───────────────────────────────────
+// Requieren estar autenticado + ser admin
+
+Route::middleware(['auth:sanctum', 'es_admin'])->prefix('admin')->group(function () {
+
+    // Dashboard: estadísticas generales
+    Route::get('/stats', [AdminController::class, 'stats']);
+
+    // Anuncios: listar y verificar
+    Route::get('/anuncios',                        [AdminController::class, 'anuncios']);
+    Route::put('/anuncios/{id}/verificar',         [AdminController::class, 'verificarAnuncio']);
+
+    // Usuarios: listar alumnos y profesores
+    Route::get('/alumnos',                         [AdminController::class, 'alumnos']);
+    Route::get('/profesores',                      [AdminController::class, 'profesores']);
+
+    // Usuarios: bloquear o eliminar
+    Route::put('/usuarios/{id}/bloquear',          [AdminController::class, 'bloquearUsuario']);
+    Route::delete('/usuarios/{id}',                [AdminController::class, 'eliminarUsuario']);
 
 });

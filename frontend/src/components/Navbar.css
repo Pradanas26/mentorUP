@@ -189,3 +189,32 @@
         padding: 0 16px;
     }
 }
+/* Botón admin (visible cuando el usuario logueado es admin) */
+.navbar-btn-admin {
+  font-size: 12px;
+  font-weight: 700;
+  color: #e94560;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: rgba(233, 69, 96, 0.1);
+  border: 1px solid rgba(233, 69, 96, 0.3);
+  transition: background 0.15s;
+}
+
+.navbar-btn-admin:hover {
+  background: rgba(233, 69, 96, 0.2);
+}
+
+/* Icono admin discreto (visible cuando no hay sesión) */
+.navbar-btn-admin-subtle {
+  font-size: 14px;
+  text-decoration: none;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+  padding: 4px;
+}
+
+.navbar-btn-admin-subtle:hover {
+  opacity: 0.7;
+}

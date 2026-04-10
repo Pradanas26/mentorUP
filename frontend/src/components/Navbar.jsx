@@ -6,7 +6,7 @@
 // ============================================================
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { getUsuarioActual, estaLogueado, logout } from '../services/api';
+import { getUsuarioActual, estaLogueado, esAdmin, logout } from '../services/api';
 import './Navbar.css';
 import logoMentorUP from '../assets/logoMentorUP.png';
 
@@ -70,6 +70,13 @@ function Navbar() {
               </svg>
             </button>
 
+            {/* Si es admin, mostramos acceso directo al panel */}
+            {esAdmin() && (
+              <Link to="/admin/dashboard" className="navbar-btn-admin" title="Panel de administración">
+                🛡️ Admin
+              </Link>
+            )}
+
             {/* Avatar con iniciales */}
             <Link to="/mi-perfil" className="navbar-avatar" title={`${usuario.nombre} ${usuario.apellidos}`}>
               {iniciales}
@@ -83,6 +90,10 @@ function Navbar() {
           <>
             <Link to="/login"    className="navbar-btn-secondary">Iniciar sesión</Link>
             <Link to="/registro" className="navbar-btn-primary">Registrarse</Link>
+            {/* Enlace discreto al panel de admin */}
+            <Link to="/admin/login" className="navbar-btn-admin-subtle" title="Acceso administración">
+              🛡️
+            </Link>
           </>
         )}
       </div>
