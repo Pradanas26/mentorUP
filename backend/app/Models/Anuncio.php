@@ -16,7 +16,7 @@ class Anuncio extends Model
     protected $fillable = [
         'profesor_id', 'titulo', 'descripcion', 'asignatura',
         'precio_hora', 'nivel', 'disponibilidad',
-        'destacado', 'destacado_hasta', 'activo',
+        'destacado', 'destacado_hasta', 'activo', 'verificado',
     ];
 
     // Convierte automáticamente estas fechas a objetos Carbon
@@ -43,12 +43,21 @@ class Anuncio extends Model
     // ── SCOPES (filtros reutilizables) ────────────────────────
 
     /**
-     * Filtra solo anuncios activos
+     * Filtra solo anuncios activos Y aprobados por el admin
      * Uso: Anuncio::activos()->get()
      */
     public function scopeActivos($query)
     {
-        return $query->where('activo', 1);
+        return $query->where('activo', 1)->where('verificado', 'aprobado');
+    }
+
+    /**
+     * Filtra anuncios pendientes de verificación
+     * Uso: Anuncio::pendientes()->get()
+     */
+    public function scopePendientes($query)
+    {
+        return $query->where('verificado', 'pendiente');
     }
 
     /**

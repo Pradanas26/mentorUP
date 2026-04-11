@@ -14,7 +14,9 @@ import Registro    from './pages/Registro';
 import Anuncios    from './pages/Anuncios';
 import DetalleAnuncio from './pages/DetalleAnuncio';
 import MiPerfil    from './pages/MiPerfil';
-import Welcome from './pages/Welcome';
+import Welcome     from './pages/Welcome';
+import AdminLogin     from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 
 
 
@@ -34,6 +36,10 @@ function App() {
         <Route path="/anuncios"      element={<Anuncios />} />
         <Route path="/anuncios/:id"  element={<DetalleAnuncio />} />
         <Route path="/mi-perfil"     element={<MiPerfil />} />
+
+        {/* Rutas de administración */}
+        <Route path="/admin/login"     element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
     </BrowserRouter>
   );
