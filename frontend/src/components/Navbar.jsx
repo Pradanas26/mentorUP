@@ -8,7 +8,8 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getUsuarioActual, estaLogueado, esAdmin, logout } from '../services/api';
 import './Navbar.css';
-import logoMentorUP from '../assets/logoMentorUP.png';
+import logoMentorUP from "../assets/logoMentorUP.png";
+//import logoMentorUP from '../assets/logoMentorUP.png';
 
 
 function Navbar() {
@@ -42,22 +43,23 @@ function Navbar() {
       {/* Menú central */}
       <ul className="navbar-menu">
         <li>
-          <Link to="/#como-funciona" className={esActivo('/anuncios') ? 'activo' : ''}>
+          <Link to="/anuncios" className={esActivo('/anuncios') ? 'activo' : ''}>
             Inicio
           </Link>
         </li>
+
         <li>
-          <Link to="/anuncios" className="">
+          <Link to="/profesores" className={esActivo('/profesores') ? 'activo' : ''}>
             Profesores
           </Link>
         </li>
+
         <li>
-          <Link to="/#como-funciona" className="">
+          <Link to="/como-funciona" className={esActivo('/como-funciona') ? 'activo' : ''}>
             Cómo funciona
           </Link>
         </li>
       </ul>
-
       {/* Botones derecha */}
       <div className="navbar-right">
         {logueado ? (

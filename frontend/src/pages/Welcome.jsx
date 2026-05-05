@@ -18,7 +18,7 @@ function Welcome() {
     <header className="welcome-header">
     <span className="welcome-logo">
         Mentor 
-        <img src={logoMentorUP} className="welcome-icon-top" />
+        {/*<img src={logoMentorUP} className="welcome-icon-top" />*/}
         <strong>UP</strong>
     </span>
     </header>
