@@ -55,7 +55,7 @@ function Navbar() {
         </li>
 
         <li>
-          <Link to="/como-funciona" className={esActivo('/como-funciona') ? 'activo' : ''}>
+          <Link to="/home#como-funciona">
             Cómo funciona
           </Link>
         </li>

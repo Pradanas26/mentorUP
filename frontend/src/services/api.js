@@ -32,9 +32,12 @@ async function fetchAPI(endpoint, options = {}) {
 
   // Si hay error de autenticación (token caducado), limpiamos la sesión
   if (response.status === 401) {
-    localStorage.removeItem('token');
-    localStorage.removeItem('usuario');
-    window.location.href = '/login';
+      localStorage.removeItem('token');
+      localStorage.removeItem('usuario');
+      // Solo redirige a /login si NO estamos en una página de admin
+      if (!window.location.pathname.startsWith('/admin')) {
+          window.location.href = '/login';
+      }
   }
 
   return { ok: response.ok, status: response.status, data };

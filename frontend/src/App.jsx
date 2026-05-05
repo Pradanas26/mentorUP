@@ -29,8 +29,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* Cada Route define qué componente mostrar según la URL */}
-        <Route path="/"              element={<Home />} />
-        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/"        element={<Welcome />} />
+        <Route path="/home"    element={<Home />} />
         <Route path="/login"         element={<Login />} />
         <Route path="/registro"      element={<Registro />} />
         <Route path="/anuncios"      element={<Anuncios />} />
